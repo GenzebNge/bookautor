@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<dive th:each="autor : ${autors}">
+    <h2 th:text="${autor.name}"></h2>
+    <h6 th:inline="text"> Name of the Autor is [[${autor.gender}]]></h6>
+    <ul>
+        <th:block th:each="book : ${autor.books}">
+            <li th:inline="text"> The book title is <b>[[${book.title}]]</b>
+            </li>
+        </th:block>
+    </ul>
+
+</dive>
+<dive th:each="book : ${books}">
+    <h2 th:text="${book.title}"></h2>
+    <h6 th:inline="text"> Title of the book[[${book.title}]]></h6>
+    <ul>
+        <th:block th:each="autor : ${book.autors}">
+            <li th:inline="text"> The book title is <b>[[${autor.name}]]</b>
+            </li>
+        </th:block>
+    </ul>
+
+</dive>
+</body>
+</html>
